@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
-
 import api from '~/services/api';
 
 import { Container } from './styles';
@@ -21,7 +20,8 @@ export default function AvatarInput() {
         path: 'dataset.file',
       });
     }
-  }, [ref, registerField]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   async function handleChange(e) {
     const data = new FormData();
