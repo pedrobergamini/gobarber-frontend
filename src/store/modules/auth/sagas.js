@@ -63,8 +63,14 @@ export function setToken({ payload }) {
   }
 }
 
+export function signOut() {
+  history.push('/');
+  toast.success('Usuário deslogado com sucesso');
+}
+
 export default all([
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
   takeLatest('persist/REHYDRATE', setToken),
+  takeLatest('@auth/SIGN_OUT', signOut),
 ]);
